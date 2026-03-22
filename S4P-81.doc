@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#S4P-81] POST /api/v1/kits/:id/products returns 200 OK instead of 400 Bad Request when I sent request with valid product ID while quantity = 0</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://keilaortiz878-1766377722574.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [S4P-81]&nbsp;<a href="https://keilaortiz878-1766377722574.atlassian.net/browse/S4P-81">POST /api/v1/kits/:id/products returns 200 OK instead of 400 Bad Request when I sent request with valid product ID while quantity = 0</a>
+            <span class="subText">
+               Created: 09/Mar/26                   &nbsp;Updated: 09/Mar/26
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">To Do</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="https://keilaortiz878-1766377722574.atlassian.net/secure/BrowseProject.jspa?id=10033">Sprint 4 project</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Components:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Affects versions:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Fix versions:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Highest
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="712020:b7b0f6ef-bfb1-44c7-94e7-1ad0cc30efa2"
+                id="word_reporter_712020:b7b0f6ef-bfb1-44c7-94e7-1ad0cc30efa2"
+                href="https://keilaortiz878-1766377722574.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3Ab7b0f6ef-bfb1-44c7-94e7-1ad0cc30efa2">
+                    Keila Ortiz
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="712020:b7b0f6ef-bfb1-44c7-94e7-1ad0cc30efa2"
+                id="word_assignee_712020:b7b0f6ef-bfb1-44c7-94e7-1ad0cc30efa2"
+                href="https://keilaortiz878-1766377722574.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3Ab7b0f6ef-bfb1-44c7-94e7-1ad0cc30efa2">
+                    Keila Ortiz
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votes:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-11140-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            None
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>Environment:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>Windows 11</p>
+
+<p>Microsoft Edge Version 145.0.3800.97 (Official build) (64-bit)</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://keilaortiz878-1766377722574.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Screenshot_9-3-2026_51045_keilaortiz878-2101744.postman.co.jpeg &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+    
+</table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>Preconditions:</p>
+
+<p><b>System Preconditions:</b></p>
+
+<ul>
+	<li>Urban Grocers API service is running and accessible</li>
+	<li>Base URL is configured and reachable</li>
+	<li>API endpoint <tt>/api/v1/kits/:id/products</tt> is available</li>
+</ul>
+
+
+<p><b>Test Environment Preconditions:</b></p>
+
+<ul>
+	<li>Postman is installed and configured</li>
+	<li>Valid base URL is available for testing</li>
+	<li>Network connectivity to the API service</li>
+</ul>
+
+
+<p><b>Data Preconditions:</b></p>
+
+<ul>
+	<li>Valid kit ID exists in the system (e.g., id=6)</li>
+	<li>Valid product ID exists (e.g., id=5)</li>
+	<li>Test quantity value = 0 (for boundary testing)</li>
+</ul>
+
+
+<p><b>Expected System Behavior:</b></p>
+
+<ul>
+	<li>API should validate quantity values</li>
+	<li>System should reject quantity = 0 as invalid</li>
+	<li>API should return 400 Bad Request for zero quantity</li>
+</ul>
+
+
+<p>Steps for reproducer:</p>
+
+<p>1.Open Postman<br/>
+2.Set request type to POST<br/>
+3.Enter URL: <span class="error">&#91;base_url&#93;</span>/api/v1/kits/:id/products<br/>
+4.Set kit ID in path parameter (like id=6)<br/>
+5.Send request with valid product ID but quantity = 0<br/>
+6.Verify the system rejects zero quantity (you can't add 0 of a product to a kit)<br/>
+7.User gets Status: 400 Bad Request</p>
+
+<p>Request body:</p>
+
+<p>{<br/>
+  "productsList": [</p>
+    {
+      "id": 5,
+      "quantity": 0
+    }
+<p>  ]<br/>
+}</p>
+
+<p>Expected results:</p>
+
+<ul class="alternate" type="square">
+	<li>Status:400 Bad Request</li>
+</ul>
+
+
+<ul class="alternate" type="square">
+	<li>Error message indicating invalid quantity value (0 not allowed)</li>
+</ul>
+
+
+<p>Actual results:</p>
+
+<ul>
+	<li>Status: 200 OK<br/>
+  "id": 6,<br/>
+  "name": "Strudel",<br/>
+  "productsList": [<br/>
+      
+{
+          "id": 89,
+          "name": "Brown Sugar",
+          "price": 2,
+          "weight": 750,
+          "units": "g",
+          "quantity": 1
+      }
+<p>,<br/>
+      </p>
+{
+          "id": 80,
+          "name": "Whole Wheat Flour",
+          "price": 1,
+          "weight": 1,
+          "units": "кg",
+          "quantity": 1
+      }
+<p>,<br/>
+      </p>
+{
+          "id": 81,
+          "name": "Farm Eggs",
+          "price": 1,
+          "weight": 8,
+          "units": "pcs",
+          "quantity": 1
+      }
+<p>,<br/>
+      </p>
+{
+          "id": 27,
+          "name": "Green Apple",
+          "price": 2,
+          "weight": 500,
+          "units": "g",
+          "quantity": 1
+      }
+<p>,<br/>
+      </p>
+{
+          "id": 90,
+          "name": "Honey",
+          "price": 2,
+          "weight": 280,
+          "units": "g",
+          "quantity": 1
+      }
+<p>,<br/>
+      </p>
+{
+          "id": 78,
+          "name": "Eggs - Medium",
+          "price": 1,
+          "weight": 10,
+          "units": "pcs",
+          "quantity": 1
+      }
+<p>,<br/>
+      </p>
+{
+          "id": 87,
+          "name": "Pasteurised Butter",
+          "price": 2,
+          "weight": 180,
+          "units": "g",
+          "quantity": 1
+      }
+<p>,<br/>
+      </p>
+{
+          "id": 91,
+          "name": "Salted Butter - No Added Preservatives &amp; Chemicals",
+          "price": 2,
+          "weight": 200,
+          "units": "g",
+          "quantity": 1
+      }
+<p>,<br/>
+      </p>
+{
+          "id": 79,
+          "name": "Eggs - Regular",
+          "price": 1,
+          "weight": 6,
+          "units": "pcs",
+          "quantity": 1
+      }
+<p>,<br/>
+      </p>
+{
+          "id": 92,
+          "name": "Salted Almond",
+          "price": 5,
+          "weight": 150,
+          "units": "g",
+          "quantity": 1
+      }
+<p>,</p>
+      {
+          "id": 5,
+          "name": "Fruit Power Juice - Litchi",
+          "price": 5,
+          "weight": 900,
+          "units": "ml",
+          "quantity": 0
+      }
+<p>  ],<br/>
+  "productsCount": 10<br/>
+}</p></li>
+</ul>
+
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+Generated at Sun Mar 22 11:44:38 UTC 2026 by Keila Ortiz using Jira 1001.0.0-SNAPSHOT#100291-rev:960c01fcf2374f237ebfce10681f1f3858213920.
+
+</body>
+</html>
